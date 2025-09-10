@@ -38,7 +38,23 @@
         
 # obj = Foo()
 # obj.prt_info()
-class Foo:
+# class Foo:
+#     univ = "YJU"
+#     dept = "GSC"
+    
+#     def __init__(self, name):
+#         self.name = name
+        
+#     def prt_info(self, age):
+#         self.age = age
+#         print(self.name, self.age)
+        
+# obj1 = Foo("kim")
+# obj1.prt_info(20)
+# obj2 = Foo("Hong")
+# obj2.prt_info(30)
+
+class bar:
     univ = "YJU"
     dept = "GSC"
     
@@ -49,7 +65,7 @@ class Foo:
         self.age = age
         print(self.name, self.age)
         
-obj1 = Foo("kim")
+obj1 = bar("kim")
 obj1.prt_info(20)
-obj2 = Foo("Hong")
+obj2 = bar("Hong")
 obj2.prt_info(30)
