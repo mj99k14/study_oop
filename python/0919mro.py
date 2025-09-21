@@ -32,13 +32,24 @@
 # obj.prt()
 
     
-class A(object):
-    N
-class B(A):
-    pass
+# class A(object):
+#     N
+# class B(A):
+#     pass
 
-class C(B):
-    pass
+# class C(B):
+#     pas
 
 
+import math
+
+def vacationRental(people, day):
+    perDay = 0
+    if day <= 3:
+        perDay = 80
+    elif day >= 10:
+        perDay = 50
+    else:
+        perDay = 60
     
+    return math.trunc((people + perDay * day) * 1.12)
