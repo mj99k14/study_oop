@@ -41,15 +41,17 @@
 #     pas
 
 
-import math
+# import math
 
-def vacationRental(people, day):
-    perDay = 0
-    if day <= 3:
-        perDay = 80
-    elif day >= 10:
-        perDay = 50
-    else:
-        perDay = 60
-    
-    return math.trunc((people + perDay * day) * 1.12)
+# def vacationRental(people, day):
+#     perDay = 0
+#     if day <= 3:
+#         perDay = 80
+#     elif day >= 10:
+#         perDay = 50
+#     else:
+#         perDay = 60
+import math
+#     return math.trunc((people + perDay * day) * 1.12)
+s = "abcdef"
+print(math.floor(len(s)/2))
