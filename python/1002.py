@@ -85,4 +85,4 @@ class MyClass(Bar):
         print("MyClass : instance_method")
 
 obj = MyClass()
-obj = Bar()
+# obj = Bar()
