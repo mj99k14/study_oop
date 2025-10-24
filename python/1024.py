@@ -77,7 +77,22 @@ class Vector:
         self.x:int = x
         self.y:int = y
         
+    def __add__(self,r_operand:"Vector"):
+        x = self.x + r_operand.x
+        y = self.y + r_operand.y
+
+        return Vector(x,y)        
 v1 = Vector(1,2)
 v2 = Vector(3,4)
 
 v3 = v1 + v2
+#v1.__Add__(v2)
+
+v4 = v1 + v2
+
+
+# x3 = v1.x + v2.x
+# y3 = v1.y + v2.y
+
+# v3 = Vector(x3,y3)
+
