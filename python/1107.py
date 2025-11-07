@@ -80,24 +80,44 @@ from dataclasses import dataclass
 
 
 
-@dataclass(order=True)
-class Student: #data 저장용 클래스가 된다
+# @dataclass(order=True)
+# class Student: #data 저장용 클래스가 된다
     
-    id:str #인스턴스 맴버 변수
-    name:field(compare = False, repr=False ) #인스턴스 맴버 변수
-    age:int#인스턴스 맴버 변수
+#     id:str #인스턴스 맴버 변수
+#     name:field(compare = False, repr=False ) #인스턴스 맴버 변수
+#     age:int#인스턴스 맴버 변수
     
-    data:list = field(default_factory=list)
+#     data:list = field(default_factory=list)
     
-    def __eq__(self,value:"Student") -> bool:
-        return self.id == value.id
+#     def __eq__(self,value:"Student") -> bool:
+#         return self.id == value.id
     
-    def __le__(self,value:"Student") -> bool:
-        return self.age <= value.age
+#     def __le__(self,value:"Student") -> bool:
+#         return self.age <= value.age
     
-std1 = Student("123","kim",23)
-std2 = Student("234","lee",34)
+# std1 = Student("123","kim",23)
+# std2 = Student("234","lee",34)
 
-print(std1)
+# print(std1)
 
-print(std2.name,std2.age,std2.id)
+# print(std2.name,std2.age,std2.id)
+
+
+# def decorator(func):
+#     print("decorator")
+
+# @decorator
+# def test():
+#     print("test")
+
+
+def bar(func):
+    def wrapper(msg:str):
+        print("write log")
+        func(msg)
+    return wrapper
+@bar
+def test(msg:str): #test = bar(test)
+    print("msg")
+test("hello")
+print(test.__name__)
