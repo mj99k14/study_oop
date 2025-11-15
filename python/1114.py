@@ -89,18 +89,36 @@
 # # print(bar("hello"))
 # # print(bar.__name__)
 
+# from functools import wraps
+
+# def test(n):
+#     def factory(func):
+#         # route_map['path'] = func
+#         def wrapper(func):
+#             func()
+#         return wrapper
+
+#     return factory
+
+# @test(1)
+# def bar():
+#   ...
+# bar()
+
+
 from functools import wraps
 
 def test(n):
     def factory(func):
-        # route_map['path'] = func
-        def wrapper(func):
-            func()
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            print("test 실행, 값 =", n)
+            return func(*args, **kwargs)
         return wrapper
-
     return factory
 
 @test(1)
 def bar():
-  ...
+    print("원래 bar 실행")
+
 bar()
