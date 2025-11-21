@@ -1,4 +1,4 @@
-from flask import Flask, Response
+from flask import Flask, Response,request
 
 # Flask 애플리케이션 객체 생성
 # 이 객체에 라우트, 훅(before/after), 설정 등이 모두 등록됨
@@ -21,6 +21,8 @@ def prt_log():
 def home():
     # Response 구조: (본문, 상태코드, 헤더)
     # 여기서는 custom header "GSC"를 추가한 예시
+    print(f"path:{request.path}")
+    print(f"Method:{request.method}")
     return "hello flask", 200, {"GSC": "gsc"}
 
 
