@@ -1,25 +1,40 @@
-from flask import Flask, request, make_response, jsonify
+from flask import Flask, request, flash, get_flashed_messages,jsonify
 import os 
 
 app = Flask(__name__)
-
-UPLOAD_PATH = "upload/" # ('/')마지막은 디렉토리
-os.makedirs(UPLOAD_PATH, exist_ok=True)
+app.secret_key = "test_key"
 
 @app.route("/", methods=["GET", "POST"])
 def home():
-    return "hello flask"
+    msg = get_flashed_messages()
+    return jsonify(msg),200
 
-@app.route("/upload", methods=["POST"])
-def upload():
-    file = request.files.get("file1", None)
+count = 1
+@app.route("/myflash", methods=["GET"])
+def myflash():
+    global count
+    flash(f"flash {count} th")
+    count += 1
 
-    file_name = file.filename
-    file_name = os.path.join(UPLOAD_PATH, file_name)
-    file.save(file_name)
+    return "flashed", 200
+    # return redirect(url_for('bar')) bar로 이동 및 새롭게 요청
+        # 302 -> path for bar view function, /bar
 
-    return 'file_saved', 200
+# @app.route("/bar", methods=["GET"])
+# def bar():
+#     return "welcome bar", 200
+
+# @app.route("/upload", methods=["POST"])
+# def upload():
+#     file = request.files.get("file1", None)
+
+#     file_name = file.filename
+#     file_name = os.path.join(UPLOAD_PATH, file_name)
+
+#     file.save(file_name)
+
+#     return 'file_saved', 200
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True) 
